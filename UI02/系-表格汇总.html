@@ -20,13 +20,17 @@
 	   /*搜索框*/
 		#search{height: 30px;background-color:#9CF;float: right;}
 		/*系统名称效果*/
-		#logo{padding: 10px 0 0 0; text-align: center; height: 50px;background-color:#69C;font-size: 40px;font-family:"隶书";color:#FFC;}
-	    #sth{width:18%;height:70px;float:left;margin:auto;}
-		#tabel{width:80%;min-height:450px;margin-top:20px;float:left;border:2px solid #999;}
-		#button{width:100%;height:50px;padding:10px 0 0 0;margin:auto;text-align:center;float:left;}
-		#button input{margin-left:30px;}
+		#logo{width:100%;padding: 10px 0 0 0; text-align: center; height: 50px;background-color:#69C;font-size: 40px;font-family:"隶书";color:#FFC;}
+		
+	     #time{width:50%;height:100px;padding:20px 0 0 0;float:left;text-align:center;}
+	    #button{width:40%;height:80px;padding:40px 0 0 0;float:left;text-align:left;}
+		/*表格位置*/
+		#tabel{width:75%;height:450px;margin-left:150px;margin-top:150px;border:2px solid #666;text-align:center;}
+		/*设置表格下一页按钮位置*/
+		#button2{width:100%;height:50px;padding:10px 0 0 0;margin:auto;text-align:center;float:left;}
+		#button2 input{margin-left:30px;}
 	 </style>
-<title>表格预览</title>
+<title>系负责人之报课管理-汇总</title>
 </head>
 
 <body>
@@ -40,8 +44,8 @@
 				<div id="nav">
 					<a href="#">首页</a> 
 	
-					<a>报课管理</a>
-					<a>表格预览</a>
+					<a href="#">报课管理</a>
+				    	<a href="#">表格汇总</a>
                     </div>
             	<div id="search">
 					<input type="text">
@@ -50,13 +54,14 @@
 			</div>
             <div id="logo">
 				福州大学数计学院自动排课系统
-			</div> 
-            <div id=sth>
-            <img src="http://t01.pic.sogou.com/02180dee779e8a8c-9a2dfd51a14e3358-4f9b58c7864f7774c5d4f69d8d28ce90.jpg" width="200" height="200"/>
-            </div>
-            <div id=tabel>未找到信息</div>
-            <div id=button>
-             <input type="submit" name="button" value="下一页">
+			</div>
+           <div id="time">
+            <p>报课截止时间：XXXX年XX月XX日  XX：XX</p>
+           <p>审核截止时间：XXXX年XX月XX日  XX：XX</p>
+            </div> 
+           <div id="tabel">此处显示表格</div>
+           <div id=button2>
+             <input type="submit" name="button" value="下一页"/>
             <input type="submit" name="button" value="返回"/>
             </div>
 </body>
