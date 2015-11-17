@@ -53,11 +53,6 @@ public class BaseController {
         request.getSession().setAttribute(CommonConstant.USER_CONTEXT,
                 teacher);
     }
-//    protected void setSessionUser(HttpServletRequest request,User user) {
-//        request.getSession().setAttribute(CommonConstant.USER_CONTEXT,
-//                user);
-//    }
-
 
     /**
      * 获取基于应用程序的url绝对路径

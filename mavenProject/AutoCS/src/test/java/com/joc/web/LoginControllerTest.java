@@ -13,7 +13,7 @@ import static org.springframework.test.web.server.setup.MockMvcBuilders.xmlConfi
 public class LoginControllerTest extends BaseController {
     private MockMvc mockMvc;
     String appContextPath = "classpath:/applicationContext.xml";
-    String webContextPath = "file:d:/Users/Administrator/IdeaProjects/AutoCS/src/main/webapp/WEB-INF/web-servlet.xml";
+    String webContextPath = "file:d:/Users/Administrator/IdeaProjects/AutoCS/src/main/webapp/WEB-INF/AutoCS-servlet.xml";
     String warDir = "src/main/webapp";
 
     @BeforeClass
@@ -35,7 +35,7 @@ public class LoginControllerTest extends BaseController {
 
         mockMvc.perform(post("/login").param("userName", "12345").param("password", "12345"))
                 .andExpect(status().isOk())
-                .andExpect(forwardedUrl("/WEB-INF/jsp/success1.jsp"));
+                .andExpect(forwardedUrl("/WEB-INF/jsp/success.jsp"));
 
     }
 

@@ -10,7 +10,7 @@ public class DepartmanagementService {
     @Autowired
     private DepartmanagementDao departmanagementDao;
 
-    public Departmanagement findUserByUserName(String userName) {
+    public Departmanagement queryUserByUserName(String userName) {
         return departmanagementDao.getUserByUserName(userName);
     }
 

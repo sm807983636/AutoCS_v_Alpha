@@ -10,7 +10,7 @@ public class TeacherService {
     @Autowired
     private TeacherDao teacherDao;
 
-    public Teacher findUserByUserName(String userName) {
+    public Teacher queryUserByUserName(String userName) {
         return teacherDao.getUserByUserName(userName);
     }
 

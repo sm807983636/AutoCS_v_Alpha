@@ -22,4 +22,14 @@ public class TeacherDao extends BaseDao<Teacher> {
             return users.get(0);
         }
     }
+    public List<Teacher> getUserByMoreConditions(String[] conditions){
+        String hql = "from Teacher t where 1=1 ";
+        if (!conditions[0].isEmpty()){
+            hql = hql + " and t.teacherDepartment = '"+conditions[0]+"' ";
+        }
+        if (!conditions[1].isEmpty()){
+            hql = hql + " and t.teacherUserName = '"+conditions[1]+"' ";
+        }
+        return (List<Teacher>)find(hql);
+    }
 }
