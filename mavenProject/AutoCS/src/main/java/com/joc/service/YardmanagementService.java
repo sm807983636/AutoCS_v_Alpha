@@ -32,6 +32,10 @@ public class YardmanagementService {
         return teacherDao.getUserByMoreConditions(conditions);
     }
 
+    public Teacher queryTeacherById(int teacherId){
+        return teacherDao.get(teacherId);
+    }
+
     public void removeTeacher(int teacherId){
         Teacher teacher = teacherDao.load(teacherId);
         teacherDao.remove(teacher);

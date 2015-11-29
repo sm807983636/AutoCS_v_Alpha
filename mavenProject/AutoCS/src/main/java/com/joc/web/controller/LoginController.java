@@ -1,6 +1,5 @@
 package com.joc.web.controller;
 
-import com.joc.cons.CommonConstant;
 import com.joc.domain.Departmanagement;
 import com.joc.domain.Teacher;
 import com.joc.domain.Yardmanagement;
@@ -10,7 +9,6 @@ import com.joc.service.YardmanagementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,6 +16,7 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("")
+//@SessionAttributes(value = {"loginYard", "loginDepart", "loginTeacher"})
 public class LoginController extends BaseController{
     @Autowired
     private YardmanagementService yardmanagementService;
@@ -27,7 +26,7 @@ public class LoginController extends BaseController{
     private TeacherService teacherService;
 
     @RequestMapping("/login")
-    public ModelAndView login(HttpServletRequest request, HttpServletResponse response) {
+    public String login(HttpServletRequest request, HttpServletResponse response) {
         String userName = request.getParameter("userName");
         String password = request.getParameter("password");
         String userType = request.getParameter("userType");
@@ -35,45 +34,39 @@ public class LoginController extends BaseController{
             Yardmanagement yardmanagement = yardmanagementService.queryUserByUserName(userName);
             if (yardmanagement == null) {
                 request.setAttribute("errorMsg", "用户名不存在");
-                return new ModelAndView("forward:/WEB-INF/jsp/login.jsp");
+                return "login";
             } else if (!yardmanagement.getYardPassword().equals(password)) {
                 request.setAttribute("errorMsg", "用户密码不正确");
-                return new ModelAndView("forward:/WEB-INF/jsp/login.jsp");
+                return "login";
             } else {
-                setSessionUser(request, yardmanagement);
-                ModelAndView mav = new ModelAndView("yard/yardMain");
-                mav.addObject(yardmanagement);
-                return mav;
+                request.getSession().setAttribute("loginYard", yardmanagement);
+                return "yard/yardMain";
             }
         }
         else if(userType.equals("2")) {
             Departmanagement departmanagement = departmanagementService.queryUserByUserName(userName);
             if (departmanagement == null) {
                 request.setAttribute("errorMsg", "用户名不存在");
-                return new ModelAndView("forward:/WEB-INF/jsp/login.jsp");
+                return "login";
             } else if (!departmanagement.getDepartPassword().equals(password)) {
                 request.setAttribute("errorMsg", "用户密码不正确");
-                return new ModelAndView("forward:/WEB-INF/jsp/login.jsp");
+                return "login";
             } else {
-                setSessionUser(request, departmanagement);
-                ModelAndView mav = new ModelAndView("depart/departMain");
-                mav.addObject(departmanagement);
-                return mav;
+                request.getSession().setAttribute("loginDepart", departmanagement);
+                return "depart/departMain";
             }
         }
         else {
             Teacher teacher = teacherService.queryUserByUserName(userName);
             if (teacher == null) {
                 request.setAttribute("errorMsg", "用户名不存在");
-                return new ModelAndView("forward:/WEB-INF/jsp/login.jsp");
+                return "login";
             } else if (!teacher.getTeacherPassword().equals(password)) {
                 request.setAttribute("errorMsg", "用户密码不正确");
-                return new ModelAndView("forward:/WEB-INF/jsp/login.jsp");
+                return "login";
             } else {
-                setSessionUser(request, teacher);
-                ModelAndView mav = new ModelAndView("teacher/teacherMain");
-                mav.addObject(teacher);
-                return mav;
+                request.getSession().setAttribute("loginTeacher", teacher);
+                return "teacher/teacherMain";
             }
         }
 
@@ -128,12 +121,13 @@ public class LoginController extends BaseController{
 
     @RequestMapping("/logout")
     public String logout(HttpSession session) {
-        session.removeAttribute(CommonConstant.USER_CONTEXT);
+//        session.removeAttribute(CommonConstant.USER_CONTEXT);
+        session.invalidate();
         return "forward:/index.jsp";
     }
 
     @RequestMapping("/index")
-    public ModelAndView index(HttpServletRequest request, HttpServletResponse response) {
-        return new ModelAndView("login");
+    public String index(HttpServletRequest request, HttpServletResponse response) {
+        return "login";
     }
 }

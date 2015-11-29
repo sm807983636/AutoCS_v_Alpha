@@ -6,7 +6,7 @@
     request.setAttribute("context",context);
 %>
 <div id="info">
-    <a>${depart.departName}管理员，欢迎您!</a>&nbsp&nbsp&nbsp
+    <a>${loginDepart.departName}管理员，欢迎您!</a>&nbsp&nbsp&nbsp
     <a href="<c:url value="/logout.html"/>">退出登录</a>&nbsp
     |&nbsp <a href="<c:url value="/logout.html"/>">修改信息</a>
 </div>

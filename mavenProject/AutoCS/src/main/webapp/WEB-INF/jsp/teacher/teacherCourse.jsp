@@ -42,12 +42,49 @@
         <p>报课截止时间：XXXX年XX月XX日  XX：XX</p>
 
     </div>
-    <div id="tabel">此处显示表格</div>
+    <div id="tabel">
+        <c:if test="${!empty errorMsg1}">
+            <div style="color:red">${errorMsg1}</div>
+        </c:if>
+        <table border="1px" width="100%">
+            <tr><td colspan="8"></td></tr>
+            <tr>
+                <td width="10%">年级</td>
+                <td width="10%">专业</td>
+                <td width="10%">专业人数</td>
+                <td width="15%">课程名称</td>
+                <td width="15%">学分</td>
+                <td width="15%">学时</td>
+                <td width="5%">实验学时</td>
+                <td width="10%">上机学时</td>
+                <%--<td width="10%">操作</td>--%>
+            </tr>
+            <c:forEach var="course" items="${course}" varStatus="status">
+                <%--<form id="form${status.count}" method="post" action="${context}/yard/user/${teacher.teacherId}/delete.html">--%>
+                <tr>
+                    <td>${course.courseGrade}</td>
+                    <td>${course.courseMajor}</td>
+                    <td>${course.coursePeople}</td>
+                    <td>${course.courseName}</td>
+                    <td>${course.courseScore}</td>
+                    <td>${course.courseHour}</td>
+                    <td>${course.testHour}</td>
+                    <td>${course.practiceHour}</td>
+                        <%--<td>--%>
+                        <%--<a href="<c:url value="/yard/user/${teacher.teacherId}/edit.html"/>">更改</a>--%>
+                        <%--<input type="hidden" name="_method" value="DELETE" />--%>
+                        <%--<a href="javascript:document.getElementById('form${status.count}').submit();">删除</a>--%>
+                        <%--</td>--%>
+                </tr>
+                <%--</form>--%>
+            </c:forEach>
+        </table>
+    </div>
 
     <div id=button2>
         <input type="submit" name="button" value="提  交"/>
-        <input type="reset" name="button" value="重  置"/>
+        <input type="reset" name="button" value="返  回"/>
     </div>
-    </div>
+</div>
 </body>
 </html>

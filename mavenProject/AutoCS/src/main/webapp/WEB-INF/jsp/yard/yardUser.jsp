@@ -34,37 +34,43 @@
 <div id="header">
     <%@ include file="yardTop.jsp"%>
     <div id="write">
+        <c:if test="${empty errorMsg1}"><br/></c:if>
         <c:if test="${!empty errorMsg1}">
             <div style="color:red">${errorMsg1}</div>
         </c:if>
         <form action="${context}/yard/user/add.html" method="post">
-            <label>工 号：<input type="text" name="userName"></label>&nbsp&nbsp&nbsp;
-            <label>姓 名：<input type="text" name="name"></label>&nbsp&nbsp&nbsp;
-            <label>密 码：<input type="text" name="password"></label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
-            <input type="submit" value="添  加">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
-            <input type="submit" value="上传附件">
+            <label>工  号：<input type="text" name="userName"></label>&nbsp;&nbsp;
+            <label>姓  名：<input type="text" name="name"></label>&nbsp;&nbsp;
+            <label>密  码：<input type="text" name="password"></label>&nbsp;&nbsp;
+            <label>所属系：<input type="text" name="department"></label>&nbsp;&nbsp;
+            <input type="submit" value="添  加">&nbsp;&nbsp;
         </form>
+        <br/>
+        <div>
+            <div style="float: left">
+                <form action="#" method="post">
+                    <input type="submit" value="上传表格">&nbsp;&nbsp;</form></div>
+            <div>
+                <form action="#" method="post">
+                    <input type="submit" value="导  入"></form></div>
+        </div>
     </div>
     <div id="write2">
+        <c:if test="${empty errorMsg2}"><br></c:if>
         <c:if test="${!empty errorMsg2}">
             <div style="color:red">${errorMsg2}</div>
         </c:if>
-        <c:if test="${!empty resultMsg1}">
-            <div style="color:red">${resultMsg1}</div>
-        </c:if>
         <form action="${context}/yard/user/find.html" method="post">
-            <label>所属系：<input type="text" name="department"></label>&nbsp&nbsp&nbsp;
+            <label>所属系：<input type="text" name="department"></label>&nbsp;&nbsp;
 
-            <label>用户名：<input type="text" name="userName"></label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
-            <input type="submit" value="查  询">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
+            <label>用户名：<input type="text" name="userName"></label>&nbsp;&nbsp;
+            <input type="submit" value="查  询">
         </form>
     </div>
+    <br/>
     <div id="main">
         <div id="float-box">
             <table border="1px" width="100%">
-                <tr><td colspan="8">
-                </td>
-                </tr>
                 <tr>
                     <td width="10%">用户名（工号）</td>
                     <td width="10%">密码</td>
@@ -76,6 +82,11 @@
                     <td width="10%">生日</td>
                     <td width="10%">操作</td>
                 </tr>
+                    <tr>
+                        <c:if test="${!empty resultMsg1}">
+                            <td colspan="9"><div style="color:red">${resultMsg1}</div></td>
+                        </c:if>
+                    </tr>
                 <c:forEach var="teacher" items="${teacher}" varStatus="status">
                     <form id="form${status.count}" method="post" action="${context}/yard/user/${teacher.teacherId}/delete.html">
                         <tr>

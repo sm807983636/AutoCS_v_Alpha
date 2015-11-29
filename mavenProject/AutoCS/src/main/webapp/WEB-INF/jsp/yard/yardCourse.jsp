@@ -48,20 +48,17 @@
 <div id="header">
     <%@ include file="yardTop.jsp"%>
     <div id="major">
-        <a>计算机科学与技术</a><br/><br/>
-        <a>数          学</a><br/><br/>
-        <a>信  息  安   全</a><br/><br/>
-        <a>软  件  工   程</a><br/><br/>
-        <a>计 算 机 实 验 班</a><br/><br/>
-        <a>数 学  实 验 班 </a><br/><br/>
-        <a>数 理  综 合 班</a><br/><br/>
-        <a>XXXXx</a><br/><br/>
+        <a href="#">计算机科学与技术</a><br/><br/>
+        <a href="#">数          学</a><br/><br/>
+        <a href="#">信  息  安   全</a><br/><br/>
+        <a href="#">软  件  工   程</a><br/><br/>
+        <a href="#">计 算 机 实 验 班</a><br/><br/>
+        <a href="#">数 学  实 验 班 </a><br/><br/>
+        <a href="#">数 理  综 合 班</a><br/><br/>
     </div>
     <div id=button1>
-
         <input type="submit" name="button" value="开始报课"/>
         &nbsp;<input type="submit" name="button" value="查看报课"/>
-
     </div>
     <div id=button2>
         <input type="submit" name="button" value="导入课表"/>
@@ -75,22 +72,17 @@
     </div>
     <div id=time>
         <form id="form">
-            开始报课：
-            <input name="bk" id="bk" type="text"/><br/><br/>
-            截止报课：
-            <input name="bk" id="bk" type="text"/><br/><br/>
-            开始审核：
-            <input name="bk" id="bk" type="text"/><br/><br/>
-            审核截止：
-            <input name="bk" id="bk" type="text"/><br/><br/>
+            <label>开始报课：<input name="bk" type="date"/></label><br/><br/>
+            <label>截止报课：<input name="bk" type="date"/></label><br/><br/>
+            <label>开始审核：<input name="bk" type="date"/></label><br/><br/>
+            <label>审核截止：<input name="bk" type="date"/></label><br/><br/>
         </form>
-        <input  type="submit" name="button" value="确定"/>&nbsp&nbsp&nbsp;
-        <input type="submit" name="button" value="返回"/>
+        <input  type="submit" value="确定"/>&nbsp;&nbsp;
+        <input type="reset" value="重置"/>
     </div>
     <div id=time1>
         <img src="http://t03.pic.sogou.com/02180dee779e8a8c-9a2dfd51a14e3358-3bc24e914a3291e6ecba8a76c5e5bac1.jpg"/>
     </div>
-
 
 </div>
 </body>

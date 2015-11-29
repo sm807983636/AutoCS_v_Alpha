@@ -2,32 +2,38 @@ package com.joc.web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Controller
 @RequestMapping("/yard")
+//@SessionAttributes("loginYard")
 public class YardJumpController extends BaseController {
 
     @RequestMapping("/main")
-    public ModelAndView yardMain(HttpServletRequest request, HttpServletResponse response){
-        return new ModelAndView("yard/yardMain");
+    public String yardMain(HttpServletRequest request, HttpServletResponse response){
+        return "yard/yardMain";
     }
 
     @RequestMapping("/user")
-    public ModelAndView yardUser(HttpServletRequest request, HttpServletResponse response){
-        return new ModelAndView("yard/yardUser");
+    public String yardUser(){
+        return "yard/yardUser";
     }
 
     @RequestMapping("/course")
-    public ModelAndView yardCourse(HttpServletRequest request, HttpServletResponse response){
-        return new ModelAndView("yard/yardCourse");
+    public String yardCourse(HttpServletRequest request, HttpServletResponse response){
+        return "yard/yardCourse";
     }
 
     @RequestMapping("/history")
-    public ModelAndView yardHistory(HttpServletRequest request, HttpServletResponse response){
-        return new ModelAndView("yard/yardHistory");
+    public String yardHistory(HttpServletRequest request, HttpServletResponse response){
+        return "yard/yardHistory";
     }
+
+    @RequestMapping("/success")
+    public String yardSuccess(HttpServletRequest request, HttpServletResponse response){
+        return "yard/yardSuccess";
+    }
+
 }

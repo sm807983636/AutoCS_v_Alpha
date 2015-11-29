@@ -44,13 +44,22 @@
             window.onload=getdates();
         </script>
     </div>
-
     <div id="tabel">此处显示教务处信息</div>
-
-    <div id=button2>
-        <input type="submit" name="button" value="开 始 报 课"/>
-        <input type="submit" name="button" value="查 看 结 果"/>
+    <br/>
+    <c:if test="${empty errorMsg1}"><br/></c:if>
+    <c:if test="${!empty errorMsg1}">
+        <div style="text-align:center;margin:0 auto;color:red">${errorMsg1}</div>
+    </c:if>
+    <br/>
+    <br/>
+    <div style="width:15%;text-align:center;margin:0 auto">
+        <div align="left" style="float:left">
+            <form action="${context}/teacher/doCourse.html" method="post">
+                <input type="submit" value="开 始 报 课"/>&nbsp;&nbsp;</form></div>
+        <div align="right">
+            <form action="${context}/teacher/result.html" method="post">
+                <input type="submit" value="查 看 结 果"/></form></div>
     </div>
-    </div>
+</div>
 </body>
 </html>

@@ -9,11 +9,11 @@ import java.util.List;
 public class TeacherDao extends BaseDao<Teacher> {
     private final String GET_USER_BY_USERNAME = "from Teacher t where t.teacherUserName = ?";
 
-    /**
-     * 根据用户名查询User对象
-     * @param userName 用户名
-     * @return 对应userName的User对象，如果不存在，返回null。
-     */
+//    /**
+//     * 根据用户名查询User对象
+//     * @param userName 用户名
+//     * @return 对应userName的User对象，如果不存在，返回null。
+//     */
     public Teacher getUserByUserName(String userName){
         List<Teacher> users = (List<Teacher>)find(GET_USER_BY_USERNAME,userName);
         if (users.size() == 0) {
@@ -29,6 +29,9 @@ public class TeacherDao extends BaseDao<Teacher> {
         }
         if (!conditions[1].isEmpty()){
             hql = hql + " and t.teacherUserName = '"+conditions[1]+"' ";
+        }
+        if (!conditions[2].isEmpty()){
+            hql = hql + " and t.teacherName = '"+conditions[2]+"' ";
         }
         return (List<Teacher>)find(hql);
     }

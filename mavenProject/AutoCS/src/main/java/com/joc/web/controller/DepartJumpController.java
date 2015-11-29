@@ -2,28 +2,28 @@ package com.joc.web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Controller
 @RequestMapping("/depart")
+//@SessionAttributes("loginDepart")
 public class DepartJumpController extends BaseController {
 
     @RequestMapping("/main")
-    public ModelAndView departMain(HttpServletRequest request, HttpServletResponse response){
-        return new ModelAndView("depart/departMain");
+    public String departMain(HttpServletRequest request, HttpServletResponse response){
+        return "depart/departMain";
     }
 
     @RequestMapping("/course")
-    public ModelAndView departCourse(HttpServletRequest request, HttpServletResponse response){
-        return new ModelAndView("depart/departCourse");
+    public String departCourse(HttpServletRequest request, HttpServletResponse response){
+        return "depart/departCourse";
     }
 
     @RequestMapping("/summary")
-    public ModelAndView departSummary(HttpServletRequest request, HttpServletResponse response){
-        return new ModelAndView("depart/departSummary");
+    public String departSummary(HttpServletRequest request, HttpServletResponse response){
+        return "depart/departSummary";
     }
 
 }

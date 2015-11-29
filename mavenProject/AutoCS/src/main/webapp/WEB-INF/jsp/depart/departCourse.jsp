@@ -45,19 +45,57 @@
         <p>审核截止时间：XXXX年XX月XX日  XX：XX</p>
     </div>
     <div id="button">
-        查询报课信息：
-        <p>
-            教工号：<input type="text" name="cx"/>
-            <input type="submit" name="button" value="确  定"/> </p>
-        <p>
-            教师名：<input type="text" name="cx"/>
-            <input type="submit" name="button" value="查看汇总表格"/></p>
+        查询报课信息：<br/><br/>
+        <c:if test="${empty errorMsg1}"><br/></c:if>
+        <c:if test="${!empty errorMsg1}">
+            <div style="color:red">${errorMsg1}</div>
+        </c:if>
+        <form action="${context}/depart/course/find.html" method="post">
+            <label>教工号：<input type="text" name="teacherUserName"/></label><br><br>
+            <label>教师名：<input type="text" name="teacherName"/></label>
+            <input type="submit" name="button" value="查  询"/>
+        </form>
+        <br>
+        <form action="${context}/depart/summary.html" method="post">
+            <input type="submit" name="button" value="查看汇总表格"/>
+        </form>
     </div>
-    <div id="tabel">此处显示表格</div>
+    <br>
+    <div id="tabel">
+        <table border="1px" width="100%">
+            <tr>
+                <td width="10%">用户名（工号）</td>
+                <td width="10%">密码</td>
+                <td width="10%">姓名</td>
+                <td width="15%">所属系</td>
+                <td width="15%">邮箱</td>
+                <td width="15%">手机</td>
+                <td width="5%">性别</td>
+                <td width="10%">生日</td>
+            </tr>
+            <tr>
+                <c:if test="${!empty resultMsg1}">
+                    <td colspan="8"><div style="color:red">${resultMsg1}</div></td>
+                </c:if>
+            </tr>
+            <c:forEach var="teacher" items="${teacher}" varStatus="status">
+                <tr>
+                    <td>${teacher.teacherUserName}</td>
+                    <td>${teacher.teacherPassword}</td>
+                    <td>${teacher.teacherName}</td>
+                    <td>${teacher.teacherDepartment}</td>
+                    <td>${teacher.teacherEmail}</td>
+                    <td>${teacher.teacherTelephone}</td>
+                    <td>${teacher.teacherSex}</td>
+                    <td>${teacher.teacherBirthday}</td>
+                </tr>
+            </c:forEach>
+        </table>
+    </div>
     <div id=button2>
         <input type="submit" name="button" value="下一页"/>
         <input type="submit" name="button" value="返回"/>
     </div>
-    </div>
+</div>
 </body>
 </html>

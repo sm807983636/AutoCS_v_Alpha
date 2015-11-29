@@ -44,14 +44,13 @@
 <div id="header">
     <%@ include file="yardTop.jsp"%>
     <div id="major">
-        <a>计算机科学与技术</a><br/><br/>
-        <a>数          学</a><br/><br/>
-        <a>信  息  安   全</a><br/><br/>
-        <a>软  件  工   程</a><br/><br/>
-        <a>计 算 机 实 验 班</a><br/><br/>
-        <a>数 学  实 验 班 </a><br/><br/>
-        <a>数 理  综 合 班</a><br/><br/>
-        <a>XXXXx</a><br/><br/>
+        <a href="#">计算机科学与技术</a><br/><br/>
+        <a href="#">数          学</a><br/><br/>
+        <a href="#">信  息  安   全</a><br/><br/>
+        <a href="#">软  件  工   程</a><br/><br/>
+        <a href="#">计 算 机 实 验 班</a><br/><br/>
+        <a href="#">数 学  实 验 班 </a><br/><br/>
+        <a href="#">数 理  综 合 班</a><br/><br/>
     </div>
     <div id=button1>
         <input type="submit" name="button" value="显示最新记录"/>
@@ -74,17 +73,13 @@
             <option value="01" id="01">01</option>
             <option value="02" id="02">02</option>
         </select></a>
-        <input type="submit" name="button" value="查 询"/>
-
+        <input type="submit" value="查 询"/>
     </div>
     <div id=tabel>未找到信息</div>
     <div id=button>
-        <input type="submit" name="button" value="下一页">
-        <input type="submit" name="button" value="返回"/>
-
+        <input type="submit" value="下一页">
+        <input type="submit" value="返回"/>
     </div>
-
-
 </div>
 </body>
 </html>
